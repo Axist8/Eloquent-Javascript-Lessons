@@ -39,7 +39,21 @@ function min(alpha, omega){
   
   console.log(min(0, 0));
 
-// 3.2 
+// 3.2 Recursion
+function isEven(digit) {
+    if (digit == 0) {
+      return "true";
+    } else if (digit == 1){
+      return "false";
+    } else if (digit < 0){
+      return isEven(digit + 2)
+    } else {
+      return isEven(digit -2)
+    }
+  }
+  console.log(isEven(-11));
+
+//3.3 
 
 // 4.1 Sum of a range
 function range(start, end, step){
