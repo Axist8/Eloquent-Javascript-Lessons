@@ -16,7 +16,19 @@ for (let i = 1 ; i < 101 ; i++){
   }
 
 // 2.3 Chessboard
+let size = 8;
+for (let ver = 0 ; ver < size ; ver++){
+  let board = "";
+  for (let hor = 0 ; hor < size ; hor++){
+    if ((hor + ver) % 2 == 0){
+      board = board + " ";
+    }
+    else {board = board + "#";}
+  }
+  console.log(board);
+}
 
+// 2.4 
 
 // 4.1 Sum of a range
 function range(start, end, step){
