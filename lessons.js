@@ -53,7 +53,23 @@ function isEven(digit) {
   }
   console.log(isEven(-11));
 
-//3.3 
+//3.3 Bean Counting
+function countBs(wor){
+    let Bs = 0;
+    for (let i = 0 ; i < wor.length ; i++){
+      if (wor[i] === "B") Bs += 1;
+    }
+    return Bs;
+  }
+  
+  function countChar(word, letter){
+    let lettNum = 0;
+    for (let i = 0 ; i < word.length ; i++){
+      if (word[i] == letter) lettNum += 1;
+    }
+    return lettNum;
+  }
+  console.log(countChar("HodgePodge", "o"));
 
 // 4.1 Sum of a range
 function range(start, end, step){
@@ -68,3 +84,5 @@ function range(start, end, step){
 }
 
 console.log(range(5, 2, -1));
+
+// 4.2 
