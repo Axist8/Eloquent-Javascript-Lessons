@@ -28,7 +28,18 @@ for (let ver = 0 ; ver < size ; ver++){
   console.log(board);
 }
 
-// 2.4 
+// 3.1 Minimum
+function min(alpha, omega){
+    if (alpha == omega){
+      return "why?";
+    } else if (alpha > omega){
+      return omega;
+    } else {return alpha;}
+  }
+  
+  console.log(min(0, 0));
+
+// 3.2 
 
 // 4.1 Sum of a range
 function range(start, end, step){
