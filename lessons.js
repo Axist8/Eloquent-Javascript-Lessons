@@ -108,4 +108,54 @@ let arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 
-// 4.3 
+// 4.3 A List
+function arrayToList(array){
+  let list = null;
+  for (let i = 0 ; i < array.length ; i++){
+    list = {
+      value: array[(array.length - 1) - i],
+      rest: list
+    }
+  }
+  return list;
+}
+
+
+function listToArray(list) {
+  let result = [];
+  if (typeof list === 'undefined' || list.value === undefined || list.rest === undefined) {
+    return result;
+  } else {
+    result.push(list.value);
+    while (list.hasOwnProperty('rest') && list.rest !== null) {
+      list = list.rest;
+      if (list.hasOwnProperty('value')) {
+      	result.push(list.value);
+      }
+    }
+  }
+  return result;
+}
+
+function prepend(element, list) {
+  return {
+    value: element,
+    rest: list
+  };
+}
+
+function nth(list, number){
+  return listToArray(list)[number];
+}
+
+function nthRecursive(list, number) {
+  if (number === 0) {
+    return list.value;
+  } else if (list.rest === null) {
+    return undefined;
+  } else {
+    return nthRecursive(list.rest, number-1);
+  }
+}
+
+// 4.4 
