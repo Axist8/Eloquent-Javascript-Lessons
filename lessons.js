@@ -75,8 +75,8 @@ function countBs(wor){
 function range(start, end, step){
   let rangeArray = [];
   if (step == undefined) step = 1;
-  let numLoops = Math.abs(Math.floor((start - end) / step));
-  for (let i = 0 ; i <= numLoops ; i++){
+  let loops = Math.abs(Math.floor((start - end) / step));
+  for (let i = 0 ; i <= loops ; i++){
     rangeArray.push(start);
     start = start + step;
   }
@@ -85,4 +85,27 @@ function range(start, end, step){
 
 console.log(range(5, 2, -1));
 
-// 4.2 
+// 4.2 Reversing an array
+function reverseArray(arrayx){
+  let arrayz = [];
+  for (let i = arrayx.length ; i > 0 ; i--){
+    arrayz.push(arrayx[i-1]);
+  }
+  return arrayz;
+}
+
+function reverseArrayInPlace(array){
+  let flip = 0;
+  for (let i = 0 ; i < (Math.floor(array.length / 2)) ; i++){
+    flip = array[i];
+    array[i] = array[(array.length - 1) - i];
+    array[(array.length - 1) - i] = flip;
+  }
+  return array;
+}
+
+let arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+
+// 4.3 
