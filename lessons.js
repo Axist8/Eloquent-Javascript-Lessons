@@ -71,6 +71,52 @@ function countBs(wor){
   }
   console.log(countChar("HodgePodge", "o"));
 
+// Ch. 4 Examples
+// 001
+function phi(table) {
+  return (table[3] * table[0] - table[2] * table[1]) /
+    Math.sqrt((table[2] + table[3]) *
+              (table[0] + table[1]) *
+              (table[1] + table[3]) *
+              (table[0] + table[2]));
+}
+
+console.log(phi([76, 9, 4, 1]));
+
+// 002
+function tableFor(event, journal) {
+  let table = [0, 0, 0, 0];
+  for (let i = 0; i < journal.length; i++) {
+    let entry = journal[i], index = 0;
+    if (entry.events.includes(event)) index += 1;
+    if (entry.squirrel) index += 2;
+    table[index] += 1;
+  }
+  return table;
+}
+console.log(tableFor("pizza", JOURNAL));
+
+// 003 
+function max(...numbers) {
+  let result = -Infinity;
+  for (let number of numbers) {
+    if (number > result) result = number;
+  }
+  return result;
+}
+console.log(max(4, 1, 9, -2));
+
+// 004 
+function randomPointOnCircle(radius) {
+  let angle = Math.random() * 2 * Math.PI;
+  return {x: radius * Math.cos(angle),
+          y: radius * Math.sin(angle)};
+}
+console.log(randomPointOnCircle(2));
+ // → {x: 0.3667, y: 1.966}
+
+//
+
 // 4.1 Sum of a range
 function range(start, end, step){
   let rangeArray = [];
@@ -82,8 +128,15 @@ function range(start, end, step){
   }
   return rangeArray;
 }
+function sum(rang){
+  let total = 0;
+  for (let i = 0 ; i < rang.length ; i++){
+    total = total + rang[i];
+  }
+  return total;
+}
 
-console.log(range(5, 2, -1));
+console.log(sum(range(1, 10, 2)));
 
 // 4.2 Reversing an array
 function reverseArray(arrayx){
@@ -158,4 +211,17 @@ function nthRecursive(list, number) {
   }
 }
 
-// 4.4 
+// 4.4 Deep Comparison
+function deepEqual(alpha, omega){
+  if (alpha === omega){
+    return true;
+  } else if (typeof alpha === 'object' && alpha !== null && typeof omega === 'object' && omega !== null){
+      if (Object.keys(alpha) !== Object.keys(omega)) return false;
+    	for (let i = 0 ; i < Object.keys(alpha).length ; i++){
+        	if (Object.keys(alpha)[i] !== Object.keys(omega)[i]) return false;
+        }
+      return true;
+  } else {return false;}
+}
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
